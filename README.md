@@ -3,12 +3,15 @@ A simple nfa based, backtracking evaluated regex implementation in a single head
 
 # FAQ
   Why use this?
+  
   Don't. There are many regex engines implemented in much more a efficient manner. I made this as a tool for myself as well as to learn how these are implemented.
 
   Why "OER"?
+  
   The header only nature of this is because of how useful I have found tools like stb_image.h. Thus in homage to those files I have used the same convention of starting the file name with my initials.
 
   What Regex feature does this have?
+  
   '.' Matches any character
 	
   'a*' Matches 0 or more of the previous character or group
@@ -51,5 +54,10 @@ A simple nfa based, backtracking evaluated regex implementation in a single head
 
   '/W' Matches anything but word characters
 
-  '/D' Matches anything but white space
+  '/S' Matches anything but white space
   
+  ## How do you use this?
+  
+  #define OER_REGEX_IMPLEMENTATION
+  
+  #include "oer_regex.h"
