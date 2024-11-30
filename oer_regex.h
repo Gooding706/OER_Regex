@@ -321,7 +321,7 @@ regexReturn_t simulateNFA(node *entry, const char *input)
 
     // Captured output and captured start are related as each captured string of index i is captured starting at a node of the same index in the node list
     stringList capturedOutput = (stringList){1, 0, malloc(sizeof(char *))};
-    nodeArray captureStart = (nodeArray){1, 0, malloc(sizeof(node *))};
+    nodeArray captureStart = (nodeArray){malloc(sizeof(node *)), 0, 1};
 
     // we keep track of epsilon transitions to make sure we don't end up with infinite loops
     stateList epsilonTable = (stateList){MAXLOOPTABLE, 0, malloc(sizeof(state) * MAXLOOPTABLE)};
@@ -670,6 +670,7 @@ atom createSet(char **openingBracket, nodeArray *nodes)
     }
     if (negateSet)
     {
+        setBitVal('\0', bitArr);
         negateBitArray(bitArr);
     }
 
